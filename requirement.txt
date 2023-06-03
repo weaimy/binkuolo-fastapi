@@ -1,0 +1,11 @@
+fastapi[all]==0.89.1
+aioredis==2.0.1
+PyJWT==2.3.0
+python-dotenv==0.21.1
+tortoise-orm[aiomysql]==0.19.3
+qrcode[pil]==7.3.1
+passlib==1.7.4
+sqlmodel==0.0.6
+pydantic~=1.10.6
+comtypes~=1.1.14
+starlette~=0.22.0
