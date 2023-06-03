@@ -16,11 +16,11 @@ DB_ORM_CONFIG = {
         "base": {
             'engine': 'tortoise.backends.mysql',
             "credentials": {
-                'host': os.getenv('BASE_HOST', '127.0.0.1'),
-                'user': os.getenv('BASE_USER', 'root'),
-                'password': os.getenv('BASE_PASSWORD', 'root'),
+                'host': os.getenv('BASE_HOST', '120.48.129.210'),
+                'user': os.getenv('BASE_USER', 'www_weaimy_com'),
+                'password': os.getenv('BASE_PASSWORD', 't2f88rcDfEaYTwEH'),
                 'port': int(os.getenv('BASE_PORT', 3306)),
-                'database': os.getenv('BASE_DB', 'base'),
+                'database': os.getenv('BASE_DB', 'www_weaimy_com'),
             }
         },
         # "db2": {
@@ -60,6 +60,6 @@ async def register_mysql(app: FastAPI):
     register_tortoise(
         app,
         config=DB_ORM_CONFIG,
-        generate_schemas=False,
+        generate_schemas=True,
         add_exception_handlers=True,
     )

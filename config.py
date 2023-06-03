@@ -18,7 +18,7 @@ class Config(BaseSettings):
     APP_DEBUG: bool = True
     # 项目信息
     VERSION: str = "0.0.1"
-    PROJECT_NAME: str = "fasdapi"
+    PROJECT_NAME: str = "api.weaimy.com"
     DESCRIPTION: str = '<a href="/redoc" target="_blank">redoc</a>'
     # 静态资源目录
     STATIC_DIR: str = os.path.join(os.getcwd(), "static")

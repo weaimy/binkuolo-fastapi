@@ -41,3 +41,19 @@ def check_password(password: str, old: str):
         return True
     else:
         return False
+
+def get_tree(data, pid):
+    """
+    遍历树
+    :param data: rule[]
+    :param pid: 父ID
+    :return: list
+    """
+    result = []
+    for item in data:
+        if item["parent_id"] == pid:
+            temp = get_tree(data, item["id"])
+            if len(temp) > 0:
+                item["children"] = temp
+            result.append(item)
+    return result

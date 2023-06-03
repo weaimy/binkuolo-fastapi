@@ -17,21 +17,12 @@ from tortoise.exceptions import OperationalError, DoesNotExist
 from fastapi.openapi.docs import (get_redoc_html, get_swagger_ui_html, get_swagger_ui_oauth2_redirect_html)
 from fastapi.openapi.utils import get_openapi
 
-from fastapi_amis_admin.admin.settings import Settings
-from fastapi_amis_admin.admin.site import AdminSite
-
 application = FastAPI(
     debug=settings.APP_DEBUG,
     docs_url=None,
     redoc_url=None,
     swagger_ui_oauth2_redirect_url=settings.SWAGGER_UI_OAUTH2_REDIRECT_URL,
 )
-
-# 创建AdminSite实例
-site = AdminSite(settings=Settings(database_url_async="sqlite+aiosqlite:///amisadmin.db"))
-
-# 挂载后台管理系统
-site.mount_app(application)
 
 # custom_openapi
 def custom_openapi():

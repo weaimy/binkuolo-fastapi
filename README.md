@@ -4,8 +4,8 @@
 Python `3.10.5`
 
 ```
-git clone git@github.com:weaimy/binkuolo-fastapi-amis.git
-cd binkuolo-fastapi-amis
+git pull https://@github.com:weaimy/binkuolo-fastapi.git
+cd binkuolo-fastapi
 ```
 
 构建虚拟环境
@@ -52,5 +52,5 @@ docker build -t weaimy/binkuolo-fastapi-amis .
 启动容器
 
 ```
-docker run -d --name weaimy-demo -p 8000:8000 -v ${PWD}:/app weaimy/binkuolo-fastapi-amis
+docker run -d --name binkuolo-fastapi -p 8000:8000 -v ${PWD}:/app weaimy/binkuolo-fastapi
 ```
