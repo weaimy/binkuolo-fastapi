@@ -46,7 +46,7 @@ uvicorn main:app --reload --port 8000
 构建镜像
 
 ```
-docker build -t weaimy/binkuolo-fastapi-amis .
+docker build -t weaimy/binkuolo-fastapi .
 ```
 
 启动容器
