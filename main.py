@@ -45,7 +45,7 @@ application.openapi = custom_openapi
 
 
 # custom_swagger_ui_html
-@application.get("/docs", include_in_schema=False)
+@application.get("/", include_in_schema=False)
 async def custom_swagger_ui_html():
     return get_swagger_ui_html(
         openapi_url=application.openapi_url,
