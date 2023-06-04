@@ -50,3 +50,35 @@ async def category_list():
     tree_data = get_tree(result, 0)
 
     return success(msg="提取成功", data={"rows": tree_data})
+
+
+@router.put("", summary="栏目修改", dependencies=[Security(check_permissions, scopes=["category_update"])])
+async def update_role(post: UpdateCategory):
+    """
+    更新角色
+    :param post:
+    :return:
+    """
+    data = post.dict()
+    data.pop("id")
+    result = await Category.filter(pk=post.id).update(**data)
+    if not result:
+        return fail(msg="更新失败!")
+    return success(msg="更新成功!")
+
+
+@router.get("/tree/options",
+            summary="栏目设置",
+            dependencies=[Security(check_permissions, scopes=["category_options"])]
+            )
+async def category_options():
+    """
+    获取所有栏目
+    :return:
+    """
+    result = await Category.annotate(label=F("title"), value=F('id')).order_by('-sort').all() \
+        .values("id", "label", "parent_id", "type", "value")
+    # 总数
+    tree_data = get_tree(result, 0)
+
+    return success(msg="提取成功", data={"options": tree_data})
